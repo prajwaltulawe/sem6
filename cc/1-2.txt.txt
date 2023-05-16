@@ -1,0 +1,24 @@
+In google cloud platform
+1. create a new project, name something and click create
+2. navigate to project
+3. go to shell:
+	cmd: gcloud projects list
+4. navigate to api and services
+	here enable api and services
+	search app engine admin api and enable
+5. in console
+	cmd: gcloud config set project "newprojectid"
+	// project directory is selected
+	cmd: gcloud app create
+	select region
+	APP ENGINE IS CREATED // it takes time
+	clone git repository
+6. cmd:
+	ls
+	cd python-docs-sample
+	cd standard_python37
+	cd hello_world
+	cat main.py
+	python main.py
+
+7. go to dashboard and check details
