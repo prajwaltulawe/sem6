@@ -13,6 +13,8 @@ In google cloud platform
 	select region
 	APP ENGINE IS CREATED // it takes time
 	clone git repository
+	//for 1st practical clone python git repository
+	//for 2nd colone self made project repository
 6. cmd:
 	ls
 	cd python-docs-sample

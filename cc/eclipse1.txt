@@ -1,0 +1,39 @@
+1.	https://github.com/Cloudslab/cloudsim/releases/download/cloudsim-4.0/cloudsim-4.0.zip
+2.	https://github.com/Gsdhumal07/CC03
+3.	eclips create project (uncheck last 2 modules)
+4.	src > right click > create package
+5	package_name > show in > system explorer > paste files from 2.
+6.	sre > build path > configure built path
+7.	libraries > classpath > add external jar > cloud paste (1.) 
+8.	src > packageNme > change all files with package name(package pn;)
+9.	src > run as > java appliacation
+
+
+
+cloud sdk download
+shell - gcloud init, option 1,mail pass
+vs type code 
+gae folder 
+shell - py google-cloud-sdk/bin/de_appserver.py gae cha path
+url
+
+
+import webapp2
+
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        self.response.write("Hello world")
+ 
+app=webapp2.WSGIApplication([('/',MainPage)], debug=True)
+test.py
+
+
+runtime: python27
+api_version: 1
+threadsafe: false
+
+
+handlers:
+- url:  /
+  script: test.app
+app.yml
