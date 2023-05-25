@@ -1,0 +1,27 @@
+1.  Go to cli.github.com
+2.  Download for windows
+3.  Create a project floder of your files, 
+    open terminal and type "gh" to check github cli installation
+4.  if successful installation type "gh auth login"
+5.  Select Github.com
+6.  Select HTTPS
+7.  Authenticate Git with your Github CLI? yes
+8.  Select "Authenticate with web browser"
+9.  Copy code and click enter 
+10. You will be redirected on browser, there enter code and clik Authenticate 
+11. Enter Password
+12. Come back to terminal (futher instruction on terminal)
+13. // create a sample html file or any other
+14. type "git init" //initilize Git
+15. "git add . " //to stage all files, click enter
+16. "git commit -m 'first push' " //commit files
+17. "git branch"    //to check branch
+18. "gh repo new" //to create new repo on github account
+19. Select 2ns option "Push an existing local repository to GitHub"
+20. Path to local repository(.) //type .
+21. Enter any description for your repo
+22. Select visibility, //public prefered
+23. Add a remote? yes
+24. What should it be called? (origin)  //click enter
+25. Would you like to push commits from current branch to "origin"? yes
+26. Ctrl+click on the link generated and your files are uploaded on github.. ! 
