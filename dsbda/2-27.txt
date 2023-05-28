@@ -1,0 +1,104 @@
+$ ssh localhost
+$ stop-all.sh
+$ hadoop namenode -format
+$ start-all.sh
+
+$ hive
+hive> 
+SHOW DATABASES;
+USE flight_info_system;
+SHOW TABLES;
+
+CREATE TABLE flight_info(
+    FL_NUM INT,
+    ORIGIN_AIRPORT_ID INT,
+    ORIGIN STRING,
+    DEST_AIRPORT_ID INT,
+    DEST STRING,
+    DEP_TIME INT,
+    DEP_DELAY INT,
+    ARR_TIME INT,
+    ARR_DELAY INT
+    )
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+tblproperties ("skip.header.line.count"="1");
+
+hive>
+    LOAD DATA LOCAL INPATH
+    '/home/akansha/flightdata.csv'
+    INTO TABLE flight_info;
+
+hive
+    select count(*) from flight_info;
+    ALTER TABLE flight_info RENAME TO flight_info_internal;
+    show tables;
+    DROP TABLE flight_info_internal;
+    show tables;
+
+hive>
+    CREATE EXTERNAL TABLE flight_info(
+    FL_NUM INT,
+    ORIGIN_AIRPORT_ID INT,
+    ORIGIN STRING,
+    DEST_AIRPORT_ID INT,
+    DEST STRING,
+    DEP_TIME INT,
+    DEP_DELAY INT,
+    ARR_TIME INT,
+    ARR_DELAY INT
+    )
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    STORED AS TEXTFILE
+    LOCATION '/home/akansha/flightdata.txt'
+    tblproperties ("skip.header.line.count"="1");
+
+    select count(*) from flight_info;
+
+hive> 
+    LOAD DATA LOCAL INPATH
+    '/home/akansha/flightdata.csv'
+    INTO TABLE flight_info;
+
+    show tables;
+    select count(*) from flight_info;
+
+    DROP TABLE flight_info;
+
+/*
+IN NEW TERMINAL, COPY flightdata.txt FILE INTO HDFS USING COMMAND :
+akansha@akansha-VirtualBox:~$ hdfs dfs -copyFromLocal flightdata.txt/data1/
+*/
+
+hive> 
+    CREATE EXTERNAL TABLE flight_info(
+    FL_NUM INT,
+    ORIGIN_AIRPORT_ID INT,
+    ORIGIN STRING,
+    DEST_AIRPORT_ID INT,
+    DEST STRING,
+    DEP_TIME INT,
+    DEP_DELAY INT,
+    ARR_TIME INT,
+    ARR_DELAY INT
+    )
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    STORED AS TEXTFILE
+    LOCATION '/data1'
+    tblproperties ("skip.header.line.count"="1");
+
+    hive> select count(*) from flight_info;
+    
+    INSERT INTO TABLE flight_info
+    VALUES(1872,10397,"ATL",14757,"SEA",1111,-2,1316,-24);
+
+    ALTER TABLE flight_info
+    ADD COLUMNS (cancelled BOOLEAN);
+
+    describe flight_info;
+
+    ALTER TABLE flight_info
+    SET TBLPROPERTIES ('default.cancelled'='False');
+
+    SELECT AVG(DEP_DELAY) AS average
+    FROM flight_info
+    WHERE DEP_TIME=2008;

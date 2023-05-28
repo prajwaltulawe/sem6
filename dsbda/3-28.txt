@@ -1,0 +1,40 @@
+CREATE TABLE :
+CREATE TABLE flight_info_staging(
+    FL_NUM INT,
+    ORIGIN_AIRPORT_ID INT,
+    ORIGIN STRING,
+    DEST_AIRPORT_ID INT,
+    DEST STRING,
+    DEP_TIME INT,
+    DEP_DELAY INT,
+    ARR_TIME INT,
+    ARR_DELAY INT
+    )
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    tblproperties ("skip.header.line.count"="1");
+
+LOAD LOCAL DATA :
+    LOAD DATA LOCAL INPATH
+        '/home/akansha/flightdata.csv'
+        INTO TABLE flight_info_staging;
+
+INSERT DATA :
+    INSERT INTO your_table_name (column1, column2, column3)
+    VALUES (value1, value2, value3);
+
+    INSERT INTO your_table_name (column1, column2, column3)
+    VALUES  (value1, value2, value3),
+            (value4, value5, value6),
+            (value7, value8, value9);
+
+INSERT FIELDS :
+    ALTER TABLE my_table
+    ADD COLUMN column1 INT,
+    ADD COLUMN column2 STRING,
+    ADD COLUMN column3 DECIMAL(10,2);
+
+JOIN TABLES :
+    SELECT t1.column1, t1.column2, t2.column3
+    FROM table1 t1
+    JOIN table2 t2 ON t1.key = t2.key;
+
